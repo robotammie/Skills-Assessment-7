@@ -3,6 +3,7 @@
 # --------- #
 
 # 1. Write a function that uses recursion to print each item in a list.
+
 def print_item(my_list, i=0):
     """Prints each item in a list recursively.
 
@@ -12,7 +13,11 @@ def print_item(my_list, i=0):
         3
 
     """
-    pass
+
+    if my_list:
+        item = my_list.pop(i)
+        print item
+        print_item(my_list)
 
 
 # 2. Write a function that uses recursion to print each node in a tree.
