@@ -6,7 +6,21 @@ def bubble_sort(lst):
         >>> bubble_sort([3, 5, 7, 2, 4, 1])
         [1, 2, 3, 4, 5, 7]
     """
-    pass
+
+    switches = False
+
+    for i in range(len(lst)):
+        for j in range(len(lst) - (i + 1)):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+                switches = True
+
+            j += 1
+
+        if not switches:
+                return lst
+
+    return lst
 
 
 def merge_lists(list1, list2):
