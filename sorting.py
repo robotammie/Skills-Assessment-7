@@ -47,7 +47,6 @@ def merge_lists(list1, list2):
     return new_list
 
 
-
 ##########ADVANCED##########
 def merge_sort(lst):
     """
@@ -60,14 +59,31 @@ def merge_sort(lst):
     >>> merge_sort([6, 2, 3, 9, 0, 1])
     [0, 1, 2, 3, 6, 9]
     """
-    pass
 
+    if len(lst) > 1:
+        midpoint = len(lst) / 2
+        list1 = merge_sort(lst[:midpoint])
+        list2 = merge_sort(lst[midpoint:])
+    else:
+        return lst
 
+    new_list = []
 
+    while list1 or list2:
+        if list1 and list2:
+            if list1[0] < list2[0]:
+                new_list.append(list1.pop(0))
+            else:
+                new_list.append(list2.pop(0))
+        elif list1:
+            new_list.append(list1.pop(0))
+        elif list2:
+            new_list.append(list2.pop(0))
+
+    return new_list
 
 #####################################################################
 # END OF ASSIGNMENT: You can ignore everything below.
-
 if __name__ == "__main__":
     import doctest
 
